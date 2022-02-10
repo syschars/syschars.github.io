@@ -6,7 +6,131 @@
         <description>Recent content on Syschar&#39;s blog</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
-        <lastBuildDate>Wed, 09 Sep 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://example.com/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Thu, 10 Feb 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://example.com/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Hugo Blog</title>
+        <link>https://example.com/p/hugo-blog/</link>
+        <pubDate>Thu, 10 Feb 2022 00:00:00 +0000</pubDate>
+        
+        <guid>https://example.com/p/hugo-blog/</guid>
+        <description>&lt;h1 id=&#34;建站记录&#34;&gt;建站记录&lt;/h1&gt;
+&lt;h2 id=&#34;安装hugo&#34;&gt;安装hugo&lt;/h2&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://gohugo.io/getting-started/installing/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;官网hugo安装方法&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;开启github-pages&#34;&gt;开启GitHub Pages&lt;/h2&gt;
+&lt;p&gt;前往&lt;a class=&#34;link&#34; href=&#34;https://github.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;GitHub&lt;/a&gt;，创建名为GitHub名.github.io的仓库&lt;/p&gt;
+&lt;h2 id=&#34;创建hugo-blog&#34;&gt;创建hugo blog&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;在你想要放置blog源码的位置打开终端&lt;/li&gt;
+&lt;li&gt;创建了一个名为my-blog的站点
+&lt;blockquote&gt;
+&lt;p&gt;hugo new site my-blog&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;li&gt;将你中意的hugo主题安装到themes文件夹下（我选择的是Stack主题）
+&lt;blockquote&gt;
+&lt;p&gt;cd my-blog/themes&lt;br&gt;
+&lt;a class=&#34;link&#34; href=&#34;https://docs.stack.jimmycai.com/zh/getting-started&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Stack主题官方安装配置教程&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;git上传&#34;&gt;git上传&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;在my-blog根目录下运行hugo命令
+&lt;blockquote&gt;
+&lt;p&gt;hugo&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;li&gt;移动至生成的public文件夹下：
+&lt;blockquote&gt;
+&lt;p&gt;cd public/&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;li&gt;使用git推送至GitHub仓库中
+&lt;blockquote&gt;
+&lt;p&gt;git init&lt;br&gt;
+git add .&lt;br&gt;
+git commit -m &amp;ldquo;2022.02.10&amp;rdquo;&lt;br&gt;
+git remote add origin &lt;a class=&#34;link&#34; href=&#34;https://github.com/syschars/syschars.github.io.git&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://github.com/syschars/syschars.github.io.git&lt;/a&gt;&lt;br&gt;
+git push origin master&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;访问github-pages站点&#34;&gt;访问GitHub Pages站点&lt;/h2&gt;
+&lt;p&gt;访问 &lt;a class=&#34;link&#34; href=&#34;https://syschars.github.io/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://syschars.github.io/&lt;/a&gt;&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>Nginx Docker</title>
+        <link>https://example.com/p/nginx-docker/</link>
+        <pubDate>Thu, 10 Feb 2022 00:00:00 +0000</pubDate>
+        
+        <guid>https://example.com/p/nginx-docker/</guid>
+        <description>&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;获取nginx容器：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;docker pull nginx&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;创建数据映射文件夹：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;mkdir -p /docker/nginx&lt;br&gt;
+mkdir -p /docker/nginx/conf&lt;br&gt;
+mkdir -p /docker/nginx/www&lt;br&gt;
+mkdir -p /docker/nginx/logs&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;创建临时容器复制配置文件：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;docker run –name mynginx -p 8800:80 -d nginx&lt;br&gt;
+//将配置文件从容器复制到宿主机。&lt;br&gt;
+docker cp mynginx:/etc/nginx/nginx.conf /docker/nginx&lt;br&gt;
+docker cp mynginx:/etc/nginx/conf.d /docker/nginx/conf&lt;br&gt;
+docker cp mynginx:/usr/share/nginx/html /docker/nginx/www&lt;br&gt;
+docker cp mynginx:/var/log/nginx /docker/nginx/logs&lt;br&gt;
+docker stop mynginx&lt;br&gt;
+docker rm mynginx&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;创建带数据映射的nginx容器：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;docker run &lt;br&gt;
+–name my_nginx &lt;br&gt;
+-p 8080:80 \ //将宿主机的8800端口与容器的80端口绑定，通过http://IP:8800即可访问nginx服务。&lt;br&gt;
+//添加数据映射位置&lt;br&gt;
+-v /docker/nginx/nginx.conf:/etc/nginx/nginx.conf &lt;br&gt;
+-v /docker/nginx/conf/conf.d:/etc/nginx/conf.d &lt;br&gt;
+-v /docker/nginx/www:/usr/share/nginx &lt;br&gt;
+-v /docker/nginx/logs:/var/log &lt;br&gt;
+-d &lt;br&gt;
+nginx&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;修改/docker/nginx/nginx.conf文件，增加反向代理设置&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;该文件初始最后最后代码行为 include /etc/nginx/conf.d/*.conf; 有两种方法进行修改&lt;br&gt;
+1. 注释后添加内容&lt;br&gt;
+2. 前往/docker/nginx/conf/conf.d目录，修改其中的default.conf文件。\&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;重启容器，加载配置&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;docker restart my_nginx&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+        </item>
+        <item>
         <title>Chinese Test</title>
         <link>https://example.com/p/test-chinese/</link>
         <pubDate>Wed, 09 Sep 2020 00:00:00 +0000</pubDate>
@@ -93,63 +217,6 @@
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;相册语法来自 &lt;a class=&#34;link&#34; href=&#34;https://typlog.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;Typlog&lt;/a&gt;&lt;/p&gt;
-</description>
-        </item>
-        <item>
-        <title>Hugo Blog</title>
-        <link>https://example.com/p/hugo-blog/</link>
-        <pubDate>Wed, 09 Sep 2020 00:00:00 +0000</pubDate>
-        
-        <guid>https://example.com/p/hugo-blog/</guid>
-        <description>&lt;h1 id=&#34;建站记录&#34;&gt;建站记录&lt;/h1&gt;
-&lt;h2 id=&#34;安装hugo&#34;&gt;安装hugo&lt;/h2&gt;
-&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://gohugo.io/getting-started/installing/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;官网hugo安装方法&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&#34;开启github-pages&#34;&gt;开启GitHub Pages&lt;/h2&gt;
-&lt;p&gt;前往&lt;a class=&#34;link&#34; href=&#34;https://github.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;GitHub&lt;/a&gt;，创建名为GitHub名.github.io的仓库&lt;/p&gt;
-&lt;h2 id=&#34;创建hugo-blog&#34;&gt;创建hugo blog&lt;/h2&gt;
-&lt;ol&gt;
-&lt;li&gt;在你想要放置blog源码的位置打开终端&lt;/li&gt;
-&lt;li&gt;创建了一个名为my-blog的站点
-&lt;blockquote&gt;
-&lt;p&gt;hugo new site my-blog&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;/li&gt;
-&lt;li&gt;将你中意的hugo主题安装到themes文件夹下（我选择的是Stack主题）
-&lt;blockquote&gt;
-&lt;p&gt;cd my-blog/themes&lt;br&gt;
-&lt;a class=&#34;link&#34; href=&#34;https://docs.stack.jimmycai.com/zh/getting-started&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;Stack主题官方安装配置教程&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h2 id=&#34;git上传&#34;&gt;git上传&lt;/h2&gt;
-&lt;ol&gt;
-&lt;li&gt;在my-blog根目录下运行hugo命令
-&lt;blockquote&gt;
-&lt;p&gt;hugo&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;/li&gt;
-&lt;li&gt;移动至生成的public文件夹下：
-&lt;blockquote&gt;
-&lt;p&gt;cd public/&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;/li&gt;
-&lt;li&gt;使用git推送至GitHub仓库中
-&lt;blockquote&gt;
-&lt;p&gt;git init&lt;br&gt;
-git add .&lt;br&gt;
-git commit -m &amp;ldquo;2022.02.10&amp;rdquo;&lt;br&gt;
-git remote add origin &lt;a class=&#34;link&#34; href=&#34;https://github.com/syschars/syschars.github.io.git&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;https://github.com/syschars/syschars.github.io.git&lt;/a&gt;&lt;br&gt;
-git push origin master&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h2 id=&#34;访问github-pages站点&#34;&gt;访问GitHub Pages站点&lt;/h2&gt;
-&lt;p&gt;访问 &lt;a class=&#34;link&#34; href=&#34;https://syschars.github.io/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;https://syschars.github.io/&lt;/a&gt;&lt;/p&gt;
 </description>
         </item>
         <item>

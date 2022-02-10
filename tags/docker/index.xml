@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>docker on Syschar&#39;s blog</title>
+    <link>https://example.com/tags/docker/</link>
+    <description>Recent content in docker on Syschar&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Thu, 10 Feb 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://example.com/tags/docker/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Nginx Docker</title>
+      <link>https://example.com/p/nginx-docker/</link>
+      <pubDate>Thu, 10 Feb 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/p/nginx-docker/</guid>
+      <description>获取nginx容器：
+ docker pull nginx
+   创建数据映射文件夹：
+ mkdir -p /docker/nginx
+mkdir -p /docker/nginx/conf
+mkdir -p /docker/nginx/www
+mkdir -p /docker/nginx/logs
+   创建临时容器复制配置文件：
+ docker run –name mynginx -p 8800:80 -d nginx
+//将配置文件从容器复制到宿主机。
+docker cp mynginx:/etc/nginx/nginx.conf /docker/nginx
+docker cp mynginx:/etc/nginx/conf.d /docker/nginx/conf
+docker cp mynginx:/usr/share/nginx/html /docker/nginx/www
+docker cp mynginx:/var/log/nginx /docker/nginx/logs
+docker stop mynginx
+docker rm mynginx
+   创建带数据映射的nginx容器：
+ docker run –name my_nginx -p 8080:80 \ //将宿主机的8800端口与容器的80端口绑定，通过http://IP:8800即可访问nginx服务。</description>
+    </item>
+    
+  </channel>
+</rss>

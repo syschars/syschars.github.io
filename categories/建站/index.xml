@@ -6,11 +6,11 @@
     <description>Recent content in 建站 on Syschar&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 09 Sep 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://example.com/categories/%E5%BB%BA%E7%AB%99/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 10 Feb 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://example.com/categories/%E5%BB%BA%E7%AB%99/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Hugo Blog</title>
       <link>https://example.com/p/hugo-blog/</link>
-      <pubDate>Wed, 09 Sep 2020 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 10 Feb 2022 00:00:00 +0000</pubDate>
       
       <guid>https://example.com/p/hugo-blog/</guid>
       <description>建站记录 安装hugo 官网hugo安装方法
@@ -26,6 +26,32 @@ git commit -m &amp;ldquo;2022.02.10&amp;rdquo;
 git remote add origin https://github.com/syschars/syschars.github.io.git
 git push origin master
    访问GitHub Pages站点 访问 https://syschars.github.io/</description>
+    </item>
+    
+    <item>
+      <title>Nginx Docker</title>
+      <link>https://example.com/p/nginx-docker/</link>
+      <pubDate>Thu, 10 Feb 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/p/nginx-docker/</guid>
+      <description>获取nginx容器：
+ docker pull nginx
+   创建数据映射文件夹：
+ mkdir -p /docker/nginx
+mkdir -p /docker/nginx/conf
+mkdir -p /docker/nginx/www
+mkdir -p /docker/nginx/logs
+   创建临时容器复制配置文件：
+ docker run –name mynginx -p 8800:80 -d nginx
+//将配置文件从容器复制到宿主机。
+docker cp mynginx:/etc/nginx/nginx.conf /docker/nginx
+docker cp mynginx:/etc/nginx/conf.d /docker/nginx/conf
+docker cp mynginx:/usr/share/nginx/html /docker/nginx/www
+docker cp mynginx:/var/log/nginx /docker/nginx/logs
+docker stop mynginx
+docker rm mynginx
+   创建带数据映射的nginx容器：
+ docker run –name my_nginx -p 8080:80 \ //将宿主机的8800端口与容器的80端口绑定，通过http://IP:8800即可访问nginx服务。</description>
     </item>
     
   </channel>
