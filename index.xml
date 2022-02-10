@@ -99,6 +99,25 @@ android:indeterminate       设置为true时，进度条不显示精度
 style=&amp;quot;?android:attr/progressBarStyleHorizontal&amp;quot;    水平进度条
 &lt;/code&gt;&lt;/pre&gt;
 &lt;h1 id=&#34;notification&#34;&gt;Notification&lt;/h1&gt;
+&lt;pre&gt;&lt;code&gt;notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+    if (Build.VERSION.SDK_INT &amp;gt;= Build.VERSION_CODES.O) {           //通知渠道从Android 8.0才引入，创建通知渠道需要判断运行的系统是否为8.0及之后的版本
+        NotificationChannel notificationChannel = new NotificationChannel(
+                &amp;quot;lalala&amp;quot;, &amp;quot;测试通知&amp;quot;, NotificationManager.IMPORTANCE_HIGH);
+        notificationManager.createNotificationChannel(notificationChannel);
+    }
+    Intent intent = new Intent(this, MyNotification.class);
+    notification = new NotificationCompat.Builder(this, &amp;quot;lalala&amp;quot;)   //channelId要与NotificationChannel对象的id相同，用于为通知选择通知渠道
+        .setContentTitle(&amp;quot;通知&amp;quot;)                                    //通知标题
+        .setContentText(&amp;quot;lalalalalala&amp;quot;)                             //通知内容
+        .setSmallIcon(R.drawable.ic_baseline_notifications_24)      //通知的小图标，图标只有alpha图层，不能是有颜色rbg图
+        .setLargeIcon(                                              //通知的大图标，bitmap图，要将普通的rbg图像转换为bitmap图
+            BitmapFactory.decodeResource( getResources(), R.drawable.avatar))
+        .setColor(Color.parseColor(&amp;quot;#ff0000&amp;quot;))                      //通知小图标的颜色
+        .setContentIntent(PendingIntent                             //点击通知后可以跳转想要前往的activity，参数是PendingIntent类型，要事先进行转换
+            .getActivity(this, 0, intent, 0))                       //requestCode与flags可以随便设置
+        .setAutoCancel(true)                                        //自动清楚通知
+        .build();
+&lt;/code&gt;&lt;/pre&gt;
 &lt;h1 id=&#34;toolbar&#34;&gt;Toolbar&lt;/h1&gt;
 &lt;h1 id=&#34;alertdialog&#34;&gt;AlertDialog&lt;/h1&gt;
 &lt;h1 id=&#34;popupwindow&#34;&gt;PopupWindow&lt;/h1&gt;
