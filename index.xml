@@ -7,6 +7,104 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <lastBuildDate>Thu, 10 Feb 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://example.com/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Android--控件</title>
+        <link>https://example.com/p/android-%E6%8E%A7%E4%BB%B6/</link>
+        <pubDate>Thu, 10 Feb 2022 00:00:00 +0000</pubDate>
+        
+        <guid>https://example.com/p/android-%E6%8E%A7%E4%BB%B6/</guid>
+        <description>&lt;h1 id=&#34;textview&#34;&gt;TextView&lt;/h1&gt;
+&lt;h2 id=&#34;控件大小&#34;&gt;控件大小&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;android:layout_width=&amp;quot;200dp&amp;quot;    控件宽度
+android:layout_height=&amp;quot;200dp&amp;quot;   控件高度
+android:gravity=&amp;quot;center&amp;quot;        内容放置位置
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;内容文本&#34;&gt;内容文本&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;android:text=&amp;quot;@string/text_2&amp;quot;       文本内容
+android:textColor=&amp;quot;@color/black&amp;quot;    文本颜色
+android:textSize=&amp;quot;50sp&amp;quot;             字体大小
+android:textStyle=&amp;quot;bold&amp;quot;            字体加粗、斜体
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;文本阴影效果&#34;&gt;文本阴影效果&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;android:shadowColor=&amp;quot;@color/red&amp;quot;    阴影颜色
+android:shadowDx=&amp;quot;10&amp;quot;               阴影横向偏移
+android:shadowDy=&amp;quot;10&amp;quot;               阴影纵向偏移
+android:shadowRadius=&amp;quot;10.0&amp;quot;         阴影透明度
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;走马灯效果&#34;&gt;走马灯效果&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;android:singleLine=&amp;quot;true&amp;quot;                       文本限制为一行显示
+android:ellipsize=&amp;quot;marquee&amp;quot;                     在哪里省略文本
+android:focusable=&amp;quot;true&amp;quot;                        获取焦点
+android:focusableInTouchMode=&amp;quot;true&amp;quot;             在触摸时聚焦
+android:marqueeRepeatLimit=&amp;quot;marquee_forever&amp;quot;    效果的持续次数
+&amp;lt;requestFocus /&amp;gt;                                放于末尾，在程序启动时启动走马灯效果
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h1 id=&#34;button&#34;&gt;Button&lt;/h1&gt;
+&lt;h2 id=&#34;控件大小以及内容文本效果都与textviewtextview相同&#34;&gt;控件大小以及内容文本效果都与&lt;a class=&#34;link&#34; href=&#34;#textview&#34; &gt;TextView&lt;/a&gt;相同&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;android:layout_width=&amp;quot;200dp&amp;quot;
+android:layout_height=&amp;quot;100dp&amp;quot;
+android:gravity=&amp;quot;center&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;按钮背景及颜色&#34;&gt;按钮背景及颜色&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;android:backgroundTint=&amp;quot;@color/btn_color_selector&amp;quot;
+android:background=&amp;quot;@drawable/btn_selector&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;在res资源文件夹下创建一个color文件夹，创建Resource文件btn_color_selector.xml用于存储按钮的颜色变化&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;item android:color=&amp;quot;@color/red&amp;quot; android:state_pressed=&amp;quot;true&amp;quot;/&amp;gt;
+&amp;lt;item android:color=&amp;quot;@color/black&amp;quot;/&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;在res中的drawable中创建Resource文件btn_selector.xml文件存放按钮背景的变化&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;item android:drawable=&amp;quot;@drawable/ic_baseline_accessible_forward_24&amp;quot; android:state_pressed=&amp;quot;true&amp;quot;/&amp;gt;
+&amp;lt;item android:drawable=&amp;quot;@drawable/ic_baseline_accessible_24&amp;quot;/&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;按钮事件&#34;&gt;按钮事件&lt;/h2&gt;
+&lt;h3 id=&#34;方法一&#34;&gt;方法一&lt;/h3&gt;
+&lt;p&gt;为button创建一个id&lt;br&gt;
+android:id=&amp;quot;@+id/btn_1&amp;quot;&lt;/p&gt;
+&lt;p&gt;在onCreate方法中&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;Button btn_1 = findViewById(R.id.btn_1);
+btn_1.setOnClickListener(new View.OnClickListener() {...});              监听短按事件
+btn_1.setOnLongClickListener(new View.OnLongClickListener() {...});      监听长按事件
+btn_1.setOnTouchListener(new View.OnTouchListener() {...});              监听触摸事件
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;方法二&#34;&gt;方法二&lt;/h3&gt;
+&lt;p&gt;为button添加绑定函数：&lt;br&gt;
+android:onClick=&amp;ldquo;lalalaClick&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;在onCreate方法自动创建了一个函数&lt;br&gt;
+public void lalalaClick(View view)&lt;br&gt;
+等价于方法一中的setOnClickListener函数&lt;/p&gt;
+&lt;h1 id=&#34;edittext&#34;&gt;EditText&lt;/h1&gt;
+&lt;pre&gt;&lt;code&gt;android:hint                输入提示文本
+android:textColorHint       输入提示文本的颜色
+android:inputType           设置输入文本的类型
+android:drawableLeft        设置图片的插入位置（左）
+android:drawablePadding     设置图片与输入框之间的距离
+android:paddingLeft         设置内容与边框的距离（左）
+android:background          背景色
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h1 id=&#34;imageview&#34;&gt;ImageView&lt;/h1&gt;
+&lt;pre&gt;&lt;code&gt;android:src                 设置图片来源
+android:scaleType           图片缩放类型
+android:maxHeigth           最大高度
+android:maxWidth            最大宽度
+android:adjustViewBounds    调整View的界限
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h1 id=&#34;progressbar&#34;&gt;ProgressBar&lt;/h1&gt;
+&lt;pre&gt;&lt;code&gt;android:max                 进度条最大值
+android:progress            已完成进度值
+android:indeterminate       设置为true时，进度条不显示精度
+style=&amp;quot;?android:attr/progressBarStyleHorizontal&amp;quot;    水平进度条
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h1 id=&#34;notification&#34;&gt;Notification&lt;/h1&gt;
+&lt;h1 id=&#34;toolbar&#34;&gt;Toolbar&lt;/h1&gt;
+&lt;h1 id=&#34;alertdialog&#34;&gt;AlertDialog&lt;/h1&gt;
+&lt;h1 id=&#34;popupwindow&#34;&gt;PopupWindow&lt;/h1&gt;
+</description>
+        </item>
+        <item>
         <title>Hugo Blog</title>
         <link>https://example.com/p/hugo-blog/</link>
         <pubDate>Thu, 10 Feb 2022 00:00:00 +0000</pubDate>
@@ -116,7 +214,8 @@ nginx&lt;/p&gt;
 &lt;li&gt;
 &lt;p&gt;修改/docker/nginx/nginx.conf文件，增加反向代理设置&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;该文件初始最后最后代码行为 include /etc/nginx/conf.d/*.conf; 有两种方法进行修改&lt;br&gt;
+&lt;p&gt;该文件初始最后最后代码行为 include /etc/nginx/conf.d/*.conf;&lt;br&gt;
+有两种方法进行修改&lt;br&gt;
 1. 注释后添加内容&lt;br&gt;
 2. 前往/docker/nginx/conf/conf.d目录，修改其中的default.conf文件。\&lt;/p&gt;
 &lt;/blockquote&gt;
