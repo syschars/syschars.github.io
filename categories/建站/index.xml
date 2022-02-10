@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>建站 on Syschar&#39;s blog</title>
+    <link>https://example.com/categories/%E5%BB%BA%E7%AB%99/</link>
+    <description>Recent content in 建站 on Syschar&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Wed, 09 Sep 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://example.com/categories/%E5%BB%BA%E7%AB%99/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Hugo Blog</title>
+      <link>https://example.com/p/hugo-blog/</link>
+      <pubDate>Wed, 09 Sep 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/p/hugo-blog/</guid>
+      <description>建站记录 安装hugo 官网hugo安装方法
+开启GitHub Pages 前往GitHub，创建名为GitHub名.github.io的仓库
+创建hugo blog  在你想要放置blog源码的位置打开终端 创建了一个名为my-blog的站点  hugo new site my-blog
+  将你中意的hugo主题安装到themes文件夹下（我选择的是Stack主题）  cd my-blog/themes
+Stack主题官方安装配置教程
+   git上传  在my-blog根目录下运行hugo命令  hugo
+  移动至生成的public文件夹下：  cd public/
+  使用git推送至GitHub仓库中  git init
+git add .
+git commit -m &amp;ldquo;2022.02.10&amp;rdquo;
+git remote add origin https://github.com/syschars/syschars.github.io.git
+git push origin master
+   访问GitHub Pages站点 访问 https://syschars.github.io/</description>
+    </item>
+    
+  </channel>
+</rss>
