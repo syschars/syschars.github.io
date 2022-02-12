@@ -132,7 +132,7 @@ style=&amp;quot;?android:attr/progressBarStyleHorizontal&amp;quot;    水平进�
 android:layout_width=&amp;quot;match_parent&amp;quot;
 android:layout_height=&amp;quot;?attr/actionBarSize&amp;quot;
 android:background=&amp;quot;@color/purple_200&amp;quot;
-app:logo=&amp;quot;@mipmap/ic_launcher&amp;quot;                                  toolbar的logo
+app:logo=&amp;quot;@mipmap/ic_launcher&amp;quot;                                  //toolbar的logo
 app:navigationIcon=&amp;quot;@drawable/ic_baseline_arrow_back_ios_24&amp;quot;    //导航图标
 app:subtitle=&amp;quot;@string/app_name&amp;quot;
 app:subtitleTextColor=&amp;quot;@color/white&amp;quot;
@@ -161,7 +161,55 @@ toolBar.setNavigationOnClickListener(new View.OnClickListener() {
 &amp;lt;/androidx.appcompat.widget.Toolbar&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;h1 id=&#34;alertdialog&#34;&gt;AlertDialog&lt;/h1&gt;
+&lt;pre&gt;&lt;code&gt;View dialogView = getLayoutInflater().inflate(R.layout.dialog_view, null);  //加载一个布局
+AlertDialog.Builder builder = new AlertDialog.Builder(this);                //创建一个builder，用来构造AlertDialog的属性
+builder.setIcon(R.mipmap.ic_launcher)                                       //设置图标
+        .setTitle(&amp;quot;对话&amp;quot;)                                                   //添加标题
+        .setView(dialogView)                                                //使用布局
+        .setMessage(&amp;quot;今天天气不错&amp;quot;)                                          //设置消息
+        .setPositiveButton(&amp;quot;确定&amp;quot;, new DialogInterface.OnClickListener() {  //确定按钮
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                Log.e(TAG, &amp;quot;onClick: 确定&amp;quot;);
+            }
+        })
+        .setNegativeButton(&amp;quot;取消&amp;quot;, new DialogInterface.OnClickListener() {  //取消按钮
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                Log.e(TAG, &amp;quot;onClick: 取消&amp;quot;);
+            }
+        })
+        .setNeutralButton(&amp;quot;中间&amp;quot;, new DialogInterface.OnClickListener() {   //中间的按钮
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                Log.e(TAG, &amp;quot;onClick: 中间&amp;quot;);
+            }
+        })
+        .create()                                                           //创建AlertDialog
+        .show();                                                            //将AlertDialog显示出来
+//create()与show()固定在链式调用的最后，且顺序固定，其他的属性配置的函数位置与顺序随意
+&lt;/code&gt;&lt;/pre&gt;
 &lt;h1 id=&#34;popupwindow&#34;&gt;PopupWindow&lt;/h1&gt;
+&lt;pre&gt;&lt;code&gt;View popupView = getLayoutInflater().inflate(R.layout.dialog_view, null);
+
+//第一个表示采用的布局，第二、三个表示布局的宽度与高度，最后一个表示焦点不在PopupWindow后自动消失
+PopupWindow popupWindow = new PopupWindow(
+        popupView,
+        ViewGroup.LayoutParams.WRAP_CONTENT,
+        ViewGroup.LayoutParams.WRAP_CONTENT,
+        true);
+Button btn = popupView.findViewById(R.id.btn_3);                                    //获取PopupWindow中的控件
+btn.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View v) {
+        Log.e(TAG, &amp;quot;onClick: pop&amp;quot;);
+        popupWindow.dismiss();
+    }
+});
+popupWindow.setBackgroundDrawable(getResources().getDrawable(R.drawable.avatar));   //从Drawable设置PopupWindow的背景图片
+
+//设置显示时的偏移位置，第一个参数为参照物，之后两个参数为x,y方向上的偏移量（可以不设）
+popupWindow.showAsDropDown(view, 100, 100);&lt;/code&gt;&lt;/pre&gt;
 </description>
         </item>
         <item>
