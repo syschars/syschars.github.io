@@ -12,7 +12,12 @@
         <pubDate>Thu, 10 Feb 2022 00:00:00 +0000</pubDate>
         
         <guid>https://example.com/p/android-%E6%8E%A7%E4%BB%B6/</guid>
-        <description>&lt;h1 id=&#34;textview&#34;&gt;TextView&lt;/h1&gt;
+        <description>&lt;h1 id=&#34;heading&#34;&gt;&lt;/h1&gt;
+&lt;p&gt;控件所有的属性不仅可以在xml文件中进行配置，也可以在在Java代码中设置。&lt;br&gt;
+所有控件的属性有自己默认值。&lt;br&gt;
+xml文件相当于一份构造表（类似对象的构造器），在app启动时加载xml文件初始化控件的相关属性。&lt;br&gt;
+Java代码中进行的设置会在程序运行时对控件进行更改，所以Java的修改会覆盖掉xml中的启动设置。&lt;/p&gt;
+&lt;h1 id=&#34;textview&#34;&gt;TextView&lt;/h1&gt;
 &lt;h2 id=&#34;控件大小&#34;&gt;控件大小&lt;/h2&gt;
 &lt;pre&gt;&lt;code&gt;android:layout_width=&amp;quot;200dp&amp;quot;    控件宽度
 android:layout_height=&amp;quot;200dp&amp;quot;   控件高度
@@ -119,6 +124,42 @@ style=&amp;quot;?android:attr/progressBarStyleHorizontal&amp;quot;    水平进�
         .build();
 &lt;/code&gt;&lt;/pre&gt;
 &lt;h1 id=&#34;toolbar&#34;&gt;Toolbar&lt;/h1&gt;
+&lt;h2 id=&#34;删除自带的toolbar-resvaluesthemestml&#34;&gt;删除自带的toolBar （res/values/themes.tml）&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;style name=&amp;quot;Theme.MyApplication&amp;quot; parent=&amp;quot;Theme.MaterialComponents.DayNight.NoActionBar&amp;quot;&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;相关属性&#34;&gt;相关属性&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;android:id=&amp;quot;@+id/tb_1&amp;quot;
+android:layout_width=&amp;quot;match_parent&amp;quot;
+android:layout_height=&amp;quot;?attr/actionBarSize&amp;quot;
+android:background=&amp;quot;@color/purple_200&amp;quot;
+app:logo=&amp;quot;@mipmap/ic_launcher&amp;quot;                                  toolbar的logo
+app:navigationIcon=&amp;quot;@drawable/ic_baseline_arrow_back_ios_24&amp;quot;    //导航图标
+app:subtitle=&amp;quot;@string/app_name&amp;quot;
+app:subtitleTextColor=&amp;quot;@color/white&amp;quot;
+app:title=&amp;quot;@string/app_name&amp;quot;
+app:titleMarginStart=&amp;quot;50dp&amp;quot;                                     //标题与左边的距离
+app:titleTextColor=&amp;quot;@color/red&amp;quot;&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;导航图标的回应&#34;&gt;导航图标的回应&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;Toolbar toolBar = findViewById(R.id.tb_1);
+toolBar.setNavigationOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View v) {
+        Log.e(TAG, &amp;quot;onClick: back&amp;quot;);
+    }
+});
+//注意Toolbar的包导入时选择 import androidx.appcompat.widget.Toolbar;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;通过textview设置标题&#34;&gt;通过TextView设置标题&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;androidx.appcompat.widget.Toolbar&amp;gt;
+    &amp;lt;TextView
+        android:layout_width=&amp;quot;wrap_content&amp;quot;
+        android:layout_height=&amp;quot;wrap_content&amp;quot;
+        android:layout_gravity=&amp;quot;center&amp;quot;
+        android:gravity=&amp;quot;center&amp;quot;
+        android:text=&amp;quot;hello&amp;quot;/&amp;gt;
+&amp;lt;/androidx.appcompat.widget.Toolbar&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
 &lt;h1 id=&#34;alertdialog&#34;&gt;AlertDialog&lt;/h1&gt;
 &lt;h1 id=&#34;popupwindow&#34;&gt;PopupWindow&lt;/h1&gt;
 </description>

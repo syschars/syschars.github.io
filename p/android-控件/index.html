@@ -114,7 +114,7 @@
 
 
                 <time class="article-time--reading">
-                    阅读时长: 1 分钟
+                    阅读时长: 2 分钟
                 </time>
             </div>
         
@@ -126,7 +126,12 @@
     <section class="article-content">
     
     
-    <h1 id="textview">TextView</h1>
+    <h1 id="heading"></h1>
+<p>控件所有的属性不仅可以在xml文件中进行配置，也可以在在Java代码中设置。<br>
+所有控件的属性有自己默认值。<br>
+xml文件相当于一份构造表（类似对象的构造器），在app启动时加载xml文件初始化控件的相关属性。<br>
+Java代码中进行的设置会在程序运行时对控件进行更改，所以Java的修改会覆盖掉xml中的启动设置。</p>
+<h1 id="textview">TextView</h1>
 <h2 id="控件大小">控件大小</h2>
 <pre><code>android:layout_width=&quot;200dp&quot;    控件宽度
 android:layout_height=&quot;200dp&quot;   控件高度
@@ -233,6 +238,42 @@ style=&quot;?android:attr/progressBarStyleHorizontal&quot;    水平进度条
         .build();
 </code></pre>
 <h1 id="toolbar">Toolbar</h1>
+<h2 id="删除自带的toolbar-resvaluesthemestml">删除自带的toolBar （res/values/themes.tml）</h2>
+<pre><code>&lt;style name=&quot;Theme.MyApplication&quot; parent=&quot;Theme.MaterialComponents.DayNight.NoActionBar&quot;&gt;
+</code></pre>
+<h2 id="相关属性">相关属性</h2>
+<pre><code>android:id=&quot;@+id/tb_1&quot;
+android:layout_width=&quot;match_parent&quot;
+android:layout_height=&quot;?attr/actionBarSize&quot;
+android:background=&quot;@color/purple_200&quot;
+app:logo=&quot;@mipmap/ic_launcher&quot;                                  toolbar的logo
+app:navigationIcon=&quot;@drawable/ic_baseline_arrow_back_ios_24&quot;    //导航图标
+app:subtitle=&quot;@string/app_name&quot;
+app:subtitleTextColor=&quot;@color/white&quot;
+app:title=&quot;@string/app_name&quot;
+app:titleMarginStart=&quot;50dp&quot;                                     //标题与左边的距离
+app:titleTextColor=&quot;@color/red&quot;&gt;
+</code></pre>
+<h2 id="导航图标的回应">导航图标的回应</h2>
+<pre><code>Toolbar toolBar = findViewById(R.id.tb_1);
+toolBar.setNavigationOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View v) {
+        Log.e(TAG, &quot;onClick: back&quot;);
+    }
+});
+//注意Toolbar的包导入时选择 import androidx.appcompat.widget.Toolbar;
+</code></pre>
+<h2 id="通过textview设置标题">通过TextView设置标题</h2>
+<pre><code>&lt;androidx.appcompat.widget.Toolbar&gt;
+    &lt;TextView
+        android:layout_width=&quot;wrap_content&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:layout_gravity=&quot;center&quot;
+        android:gravity=&quot;center&quot;
+        android:text=&quot;hello&quot;/&gt;
+&lt;/androidx.appcompat.widget.Toolbar&gt;
+</code></pre>
 <h1 id="alertdialog">AlertDialog</h1>
 <h1 id="popupwindow">PopupWindow</h1>
 
@@ -473,6 +514,13 @@ style=&quot;?android:attr/progressBarStyleHorizontal&quot;    水平进度条
         <li><a href="#方法二">方法二</a></li>
       </ol>
     </li>
+  </ol>
+
+  <ol>
+    <li><a href="#删除自带的toolbar-resvaluesthemestml">删除自带的toolBar （res/values/themes.tml）</a></li>
+    <li><a href="#相关属性">相关属性</a></li>
+    <li><a href="#导航图标的回应">导航图标的回应</a></li>
+    <li><a href="#通过textview设置标题">通过TextView设置标题</a></li>
   </ol>
 </nav>
                 </div>
