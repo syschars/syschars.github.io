@@ -6,7 +6,85 @@
         <description>Recent content on Syschar&#39;s blog</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
-        <lastBuildDate>Thu, 10 Feb 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://example.com/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Sat, 12 Feb 2022 17:19:57 +0800</lastBuildDate><atom:link href="https://example.com/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Android--布局</title>
+        <link>https://example.com/p/android-%E5%B8%83%E5%B1%80/</link>
+        <pubDate>Sat, 12 Feb 2022 17:19:57 +0800</pubDate>
+        
+        <guid>https://example.com/p/android-%E5%B8%83%E5%B1%80/</guid>
+        <description>&lt;h1 id=&#34;linearlayout--线性布局&#34;&gt;LinearLayout&amp;ndash;线性布局&lt;/h1&gt;
+&lt;pre&gt;&lt;code&gt;orientation     布局中组件的排列方式（默认是横向排列）
+gravity         控制组件的子元素的对齐方式（默认靠左靠上对齐）
+background      设置背景（纯色或图片）
+divider         分割线
+showDividers    设置分割线位置
+dividerPadding  设置分割线的padding
+layout_gravity  控制组件在父容器中的对齐方式
+layout_weight   用于按权重比划分父容器剩余空白区域，如果子布局所需要的控件超过了父布局将按权重比裁剪空间
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h1 id=&#34;relativelayout--相对布局&#34;&gt;RelativeLayout&amp;ndash;相对布局&lt;/h1&gt;
+&lt;pre&gt;&lt;code&gt;默认相对左上角进行布局，默认情况下，子部件会彼此重合
+
+根据父容器进行定位
+layout_alignParentLeft      左对齐
+layout_alignParentRight     右对齐
+layout_alignParentTop       顶部对齐
+layout_alignParentBottom    底部对齐
+layout_centerHorizontal     水平居右
+layout_centerInParent       垂直居中
+layout_centerVertical       中间位置
+
+根据兄弟组件进行定位
+layout_toLeftOf             放在参考组件左侧
+layout_toRightOf            放在参考组件右侧
+layout_above                放在参考组件上方
+layout_below                放在参考组件下方
+layout_alignTop             对齐参考组件的上边界
+layout_alignBottom          对齐参考组件的下边界
+layout_alignLeft            对齐参考组件的左边界
+layout_alignRight           对齐参考组件的右边界
+
+设置组件与父容器之间的间距
+layout_margin               距离父容器上下左右边界的距离（优先满足左上的距离要求）
+layout_marginLeft
+layout_marginRight
+layout_marginTop
+layout_marginBottom
+
+padding                     设置组件内部的元素与组件边距
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h1 id=&#34;framelayout--框架布局从左上角开始依次覆盖绘制组件&#34;&gt;FrameLayout&amp;ndash;框架布局（从左上角开始依次覆盖绘制组件）&lt;/h1&gt;
+&lt;pre&gt;&lt;code&gt;android:foreground          设置前景（用图片或者纯色覆盖组件）
+android:foregroundGravity   设置前景的位置
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h1 id=&#34;tablelayout--表格布局&#34;&gt;TableLayout&amp;ndash;表格布局&lt;/h1&gt;
+&lt;pre&gt;&lt;code&gt;控件占据一行的大小
+如果要划分一行内部的空间，需要用&amp;lt;TableRow&amp;gt;...&amp;lt;/TableRow&amp;gt;占据一行，并将控件放于其中，超出行宽的部分将不会再显示。
+
+android:collapseColumns     设置需要隐藏的列的序号（从0开始）
+android:stretchColumns      设置允许被拉伸的列的列号（从0开始）（将行内剩余空白分配给拉伸的列）
+android:shrinkColumns       设置允许收缩的列的列号（从0开始）（若组件行宽超出界面，压缩选中列的行宽以全部显示）
+
+android:layout_column       设置组件显示在第几列（用于TableRow中的组件）
+android:layout_span         设置组件横向跨几列
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h1 id=&#34;gridlayout--网格布局&#34;&gt;GridLayout&amp;ndash;网格布局&lt;/h1&gt;
+&lt;pre&gt;&lt;code&gt;android:orientation         水平布局或者垂直布局
+android:columnCount         单行能显示的最多组件数量
+android:rowCount            单列能显示的最多组件数量
+android:layout_column       设置组件显示在第几列（用于TableRow中的组件）
+android:layout_columnSpan   设置组件横向跨几列
+android:layout_columnWeight 设置每行剩余空白空间的分配比重
+layout_gravity              设置在网格中的显示位置
+android:layout_row          设置组件显示在第几行（用于TableRow中的组件）
+android:layout_rowSpan      设置组件横向跨几行
+android:layout_rowWeight    设置每列剩余空白空间的分配比重
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h1 id=&#34;constraintlayout--约束布局默认布局&#34;&gt;ConstraintLayout&amp;ndash;约束布局（默认布局）&lt;/h1&gt;
+&lt;pre&gt;&lt;code&gt;通常直接在design视图里直接布局，不必编写代码&lt;/code&gt;&lt;/pre&gt;
+</description>
+        </item>
+        <item>
         <title>Android--控件</title>
         <link>https://example.com/p/android-%E6%8E%A7%E4%BB%B6/</link>
         <pubDate>Thu, 10 Feb 2022 00:00:00 +0000</pubDate>
